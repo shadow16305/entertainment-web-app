@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { RxAvatar } from "react-icons/rx";
+import { CiLogout } from "react-icons/ci";
+import { signOut } from "next-auth/react";
 
 const navLinks = [
   {
@@ -34,6 +36,7 @@ const navLinks = [
 
 const MainNavigation = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <nav className="flex lg:flex-col justify-between items-center fixed top-0 lg:top-1/2 lg:-translate-y-1/2 lg:h-[90vh] py-9 px-7 text-white bg-dark-blue min-w-full lg:min-w-0 lg:rounded-3xl lg:ms-8 z-50">
@@ -54,7 +57,19 @@ const MainNavigation = () => {
           </Link>
         ))}
       </div>
-      <RxAvatar className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+      <div className="flex flex-col items-center gap-y-8">
+        <button
+          onClick={async () => {
+            const data = await signOut({ redirect: false, callbackUrl: "/" });
+            if (data?.url) {
+              // Use router.replace to replace the current page with the new URL
+              router.replace(data.url);
+            }
+          }}>
+          <CiLogout className="w-6 h-6 md:w-8 md:h-8 text-red" />
+        </button>
+        <RxAvatar className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+      </div>
     </nav>
   );
 };

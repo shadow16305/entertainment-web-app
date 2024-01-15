@@ -11,7 +11,7 @@ const SearchBox: React.FC<{
   const { setSearchValue } = value;
 
   return (
-    <div className="flex mt-16 mb-5 gap-x-3">
+    <div className="flex mt-16 mb-5 gap-x-3 pe-8">
       <IoSearch className="w-6 h-6 text-white" />
       <input
         type="text"
