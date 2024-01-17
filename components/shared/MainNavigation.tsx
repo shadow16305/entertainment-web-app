@@ -9,7 +9,7 @@ const navLinks = [
   {
     id: "n1",
     iconSrc: "/images/window.svg",
-    path: "/home",
+    path: "/",
     alt: "Home Page",
   },
   {
