@@ -34,7 +34,7 @@ const TrendingCarousel: React.FC<TrendingCarouselProps> = ({ data }) => {
   return (
     <Carousel responsive={responsive} centerMode={true} infinite>
       {data.map(item => (
-        <TrendingCard key={item.id} {...item} />
+        <TrendingCard key={item.id} {...item} link={`/movies/${item.id}`} />
       ))}
     </Carousel>
   );

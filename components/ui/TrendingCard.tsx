@@ -6,7 +6,7 @@ import { FaPlayCircle } from "react-icons/fa";
 const TrendingCard: React.FC<Props> = ({ ...props }) => {
   return (
     <Link
-      href={`${props.id}`}
+      href={`${props.link}`}
       className="flex flex-col gap-y-2 mt-6 hover:cursor-pointer lg:w-[340px] xl:w-[360px] 2xl:w-[380px] h-auto">
       <div className="relative w-full h-full">
         <Image
