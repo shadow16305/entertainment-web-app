@@ -17,7 +17,7 @@ const SearchBox: React.FC<{
         type="text"
         onChange={inputSearchhandler}
         placeholder="Search for movies or TV series"
-        className="w-full border-b border-extra-dark-blue hover:border-grey-blue transition-all duration-300 bg-transparent focus:outline-none pb-[14px] text-white"
+        className="w-full border-b border-extra-dark-blue hover:border-dark-red transition-all duration-300 bg-transparent focus:outline-none pb-[14px] text-white"
       />
     </div>
   );

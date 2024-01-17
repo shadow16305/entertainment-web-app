@@ -1,29 +1,27 @@
 "use client";
 
-import SearchBox from "@/components/shared/SearchBox";
 import Card from "@/components/ui/Card";
-import data from "../../../json/data.json";
-import { useState } from "react";
+import useGetSeriesData from "@/hooks/useGetSeriesData";
 
 const TvSeriesPage = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const seriesHook = useGetSeriesData();
 
-  const filteredData = data
-    .filter(item => item.category === "TV Series")
-    .filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()));
+  const seriesData = seriesHook.seriesTitle;
 
   return (
-    <>
-      <SearchBox value={{ setSearchValue, searchValue }} />
-      <div className="flex flex-col text-white">
-        <h1 className="text-[32px] font-light tracking-[-0.5px]">TV Series</h1>
-        <div className="flex flex-wrap gap-x-4 md:gap-x-[30px] lg:gap-x-10">
-          {filteredData.map(item => (
-            <Card key={item.title} {...item} />
-          ))}
-        </div>
+    <div className="lg:container lg:mx-auto flex flex-col items-center mt-16 text-white">
+      <h2 className="mt-10 text-[32px] font-light tracking-[-0.5px]">TV Series</h2>
+      <div className="flex flex-wrap justify-center lg:justify-start gap-x-4 md:gap-x-[30px] lg:gap-x-8">
+        {seriesData.map(item => (
+          <Card key={item.title} {...item} />
+        ))}
       </div>
-    </>
+      <div className="flex gap-x-6 fixed z-50 bottom-14 lg:py-4 px-8 text-white bg-white bg-opacity-5 backdrop-blur-2xl lg:rounded-[50px]">
+        <button onClick={() => seriesHook.prevPage()}>PREV</button>
+        <span>{seriesHook.currentPage}</span>
+        <button onClick={() => seriesHook.nextPage()}>NEXT</button>
+      </div>
+    </div>
   );
 };
 

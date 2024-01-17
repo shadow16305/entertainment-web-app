@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { RxAvatar } from "react-icons/rx";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const navLinks = [
   {
     id: "n1",
     iconSrc: "/images/window.svg",
-    path: "/",
+    path: "/home",
     alt: "Home Page",
   },
   {
@@ -24,22 +24,16 @@ const navLinks = [
     path: "/tv",
     alt: "TV series page",
   },
-  {
-    id: "n4",
-    iconSrc: "/images/Bookmark.svg",
-    path: "/bookmarks",
-    alt: "Bookmarks page",
-  },
 ];
 
 const MainNavigation = () => {
+  const [inputValue, setInputValue] = useState("");
+
   const pathname = usePathname();
-  const router = useRouter();
 
   return (
-    <nav className="flex lg:flex-col justify-between items-center fixed top-0 lg:top-1/2 lg:-translate-y-1/2 lg:h-[90vh] py-9 px-7 text-white bg-dark-blue min-w-full lg:min-w-0 lg:rounded-3xl lg:ms-8 z-50">
-      <Image src="/images/Movie.svg" alt="logo" width={0} height={0} className="h-auto w-6 md:w-8" />
-      <div className="flex lg:flex-col gap-y-10 gap-x-6 md:gap-x-8">
+    <nav className="flex justify-between items-center lg:gap-x-20 fixed top-0 lg:top-14 lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 py-9 px-7 lg:py-4 text-white bg-white bg-opacity-5 backdrop-blur-2xl min-w-full lg:min-w-0 lg:rounded-[50px] z-50">
+      <div className="flex gap-x-6 md:gap-x-8">
         {navLinks.map(link => (
           <Link
             key={link.id}
@@ -55,9 +49,7 @@ const MainNavigation = () => {
           </Link>
         ))}
       </div>
-      <div className="flex flex-col items-center gap-y-8">
-        <RxAvatar className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
-      </div>
+      <input type="text" placeholder="Search for titles..." className="bg-transparent focus:outline-none text-end" />
     </nav>
   );
 };

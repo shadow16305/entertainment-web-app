@@ -61,7 +61,7 @@ const SignUpForm = () => {
             <input
               type="email"
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-              className={`bg-transparent border-b focus:outline-none pb-4 w-full ${!emailIsValid ? "border-b-red" : "border-b-grey-blue "}`}
+              className={`bg-transparent border-b focus:outline-none pb-4 w-full ${!emailIsValid ? "border-b-red" : "border-b-dark-red "}`}
               placeholder="Email address"
             />
             {!emailIsValid && <p className="text-red text-sm absolute z-10 right-0">Can't be empty</p>}
@@ -70,7 +70,7 @@ const SignUpForm = () => {
             <input
               type="password"
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
-              className={`bg-transparent border-b focus:outline-none pb-4 w-full ${!passwordIsValid ? "border-b-red" : "border-b-grey-blue "}`}
+              className={`bg-transparent border-b focus:outline-none pb-4 w-full ${!passwordIsValid ? "border-b-red" : "border-b-dark-red "}`}
               placeholder="Password"
             />
             {!passwordIsValid && <p className="text-red text-sm absolute z-10 right-0">Can't be empty</p>}
@@ -79,7 +79,7 @@ const SignUpForm = () => {
             <input
               type="password"
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => setRepeatedPassword(event.target.value)}
-              className={`bg-transparent border-b focus:outline-none pb-4 w-full ${!repeatedPasswordIsValid ? "border-b-red" : "border-b-grey-blue "}`}
+              className={`bg-transparent border-b focus:outline-none pb-4 w-full ${!repeatedPasswordIsValid ? "border-b-red" : "border-b-dark-red "}`}
               placeholder="Repeat password"
             />
             {!repeatedPasswordIsValid && (

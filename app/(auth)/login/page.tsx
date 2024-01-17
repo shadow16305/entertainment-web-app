@@ -6,7 +6,7 @@ import { authOptions } from "@/app/authOptions";
 const LoginPage = async () => {
   const session = await getServerSession(authOptions);
 
-  if (session) redirect("/");
+  if (session) redirect("/home");
 
   return <LoginForm />;
 };

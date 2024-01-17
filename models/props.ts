@@ -1,23 +1,22 @@
 interface Props {
+  id: number;
   title: string;
-  year: number;
-  category: string;
+  original_title: string;
+  name: string;
+  first_air_date: string;
+  media_type: string;
+  poster_path: string;
+  genres: Array<{
+    name: string;
+    id: string;
+  }>;
+  language: string;
+  release_date: string;
+  runtime: string;
   rating: string;
-  isTrending: boolean;
-  thumbnail: {
-    trending?: {
-      small: string;
-      large: string;
-    };
-    regular: {
-      small: string;
-      medium: string;
-      large: string;
-    };
-  };
-
-  onAddBookmark?: (title: string) => void;
-  onRemoveBookmark?: (title: string) => void;
+  overview: string;
+  link: number | string;
+  videos: { results: Array<{ type: string; key: string }> };
 }
 
 export default Props;
