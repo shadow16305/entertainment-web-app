@@ -42,7 +42,7 @@ const SignUpForm = () => {
       if (res.ok) {
         const form = event.target as HTMLFormElement;
         form.reset();
-        router.push("/");
+        router.push("");
       } else {
         console.log("User registration failed.");
       }

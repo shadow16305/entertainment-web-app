@@ -30,8 +30,10 @@ const LoginForm = () => {
         redirect: false,
       });
 
+      console.log("Authentication response:", res);
+
       if (res && !res.error) {
-        router.replace("home");
+        router.replace("/");
       } else {
         console.error("Authentication failed:", res?.error);
       }
