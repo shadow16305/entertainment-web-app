@@ -33,7 +33,7 @@ const LoginForm = () => {
       console.log("Authentication response:", res);
 
       if (res && !res.error) {
-        router.replace("/");
+        router.replace("/home");
       } else {
         console.error("Authentication failed:", res?.error);
       }
@@ -45,7 +45,7 @@ const LoginForm = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-y-20 px-8 lg:h-screen text-white font-light">
       <Image src="/images/Movie.svg" alt="movie icon" width={32} height={26} />
-      <div className="flex flex-col bg-dark-blue rounded-3xl gap-y-10 p-8">
+      <div className="flex flex-col bg-black rounded-3xl gap-y-10 p-8">
         <h1 className="text-[32px]">Login</h1>
         <form onSubmit={submitHandler} className="flex flex-col gap-y-6">
           <div className="flex gap-x-2 relative">

@@ -17,10 +17,10 @@ const responsive = {
   },
 };
 
-const CastSlider: React.FC<{ movieCast: CastInfo[] }> = ({ movieCast }) => {
+const SeriesCastSlider: React.FC<{ seriesCast: CastInfo[] }> = ({ seriesCast }) => {
   return (
     <Carousel responsive={responsive} className="mx-auto w-full">
-      {movieCast.map(item => (
+      {seriesCast.map(item => (
         <div key={item.id} className="flex flex-col items-center justify-end min-h-[320px] md:min-h-0">
           {item.profile_path ? (
             <Image
@@ -41,4 +41,4 @@ const CastSlider: React.FC<{ movieCast: CastInfo[] }> = ({ movieCast }) => {
   );
 };
 
-export default CastSlider;
+export default SeriesCastSlider;

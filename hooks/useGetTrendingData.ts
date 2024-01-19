@@ -10,8 +10,7 @@ const useGetTrendingData = () => {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NTcxMGRiYTQ2MDU4MzJiNTYxMjYxY2U3MmU3ZDdhMSIsInN1YiI6IjY1YTY3OGQwOTg4YWZkMDEyMjg5OWNiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4Gh3tY_miA_PU2F7_XS1UT3PkHBfIljWO5N5M_vhL3M",
+          Authorization: `${process.env.NEXT_PUBLIC_API_KEY}`,
         },
       };
 

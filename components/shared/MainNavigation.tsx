@@ -1,15 +1,17 @@
 "use client";
 
+import { SearchContext, useSearch } from "@/store/SearchContext";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { ChangeEvent } from "react";
+import { useContext } from "react";
 
 const navLinks = [
   {
     id: "n1",
     iconSrc: "/images/window.svg",
-    path: "/",
+    path: "/home",
     alt: "Home Page",
   },
   {
@@ -27,12 +29,17 @@ const navLinks = [
 ];
 
 const MainNavigation = () => {
-  const [inputValue, setInputValue] = useState("");
+  const searchCtx = useContext(SearchContext);
 
   const pathname = usePathname();
 
+  const searchValueHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    searchCtx?.setSearchValue(event.target.value);
+  };
+
   return (
-    <nav className="flex justify-between items-center lg:gap-x-20 fixed top-0 lg:top-14 lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 py-9 px-7 lg:py-4 text-white bg-white bg-opacity-5 backdrop-blur-2xl min-w-full lg:min-w-0 lg:rounded-[50px] z-50">
+    <nav
+      className={`flex justify-between items-center lg:gap-x-20 fixed top-0 lg:top-14 lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 py-9 px-7 lg:py-4 text-white bg-white bg-opacity-5 backdrop-blur-2xl min-w-full lg:min-w-0 lg:rounded-[50px] z-50 ${pathname === "/" && "hidden"}`}>
       <div className="flex gap-x-6 md:gap-x-8">
         {navLinks.map(link => (
           <Link
@@ -49,7 +56,12 @@ const MainNavigation = () => {
           </Link>
         ))}
       </div>
-      <input type="text" placeholder="Search for titles..." className="bg-transparent focus:outline-none text-end" />
+      <input
+        onChange={searchValueHandler}
+        type="text"
+        placeholder="Search for titles..."
+        className="bg-transparent focus:outline-none text-end"
+      />
     </nav>
   );
 };
