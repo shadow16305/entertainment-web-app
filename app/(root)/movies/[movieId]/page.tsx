@@ -40,7 +40,9 @@ const MovieDetails = () => {
               <span className="opacity-50 mt-4 text-center lg:text-start">"{movieData.tagline}"</span>
               <div className="flex gap-x-2 mt-4">
                 {movieData.genres.map((genre) => (
-                  <span key={genre.id} className="border rounded-3xl px-4 bg-white text-black">
+                  <span
+                    key={genre.id}
+                    className="border rounded-3xl px-4 py-2 bg-white text-black text-xs lg:text-base ">
                     {genre.name}
                   </span>
                 ))}
@@ -57,17 +59,17 @@ const MovieDetails = () => {
             </div>
           </div>
         )}
-        <div className="mt-20 flex flex-col lg:gap-y-10 text-white">
+        <div className="mt-20 flex flex-col items-center lg:items-start gap-y-8 lg:gap-y-10 text-white">
           <h2 className="text-3xl">Videos</h2>
-          <div className="flex flex-col lg:flex-row gap-x-4">
+          <div className="flex flex-col lg:flex-row gap-x-4 gap-y-4">
             {trailer.map((item) => item.type === "Trailer" && <VideoPlayer key={item.id} videoKey={item.key} />)}
           </div>
         </div>
-        <div className="flex flex-col mt-20 lg:gap-y-10 text-white">
+        <div className="flex flex-col items-center lg:items-start mt-20 lg:gap-y-10 text-white">
           <h2 className="text-3xl">Cast</h2>
           <MovieCastSlider movieCast={movieCast} />
         </div>
-        <div className="flex flex-col gap-y-20 text-white font-light mt-20">
+        <div className="flex flex-col items-center lg:items-start gap-y-8 lg:gap-y-20 text-white font-light mt-20">
           <h2 className="text-3xl">Reviews</h2>
           {movieReviews &&
             movieReviews.map((review, index) => (

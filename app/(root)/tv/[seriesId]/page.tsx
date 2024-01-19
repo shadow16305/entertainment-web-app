@@ -22,7 +22,7 @@ const SeriesDetails = () => {
           className="w-full h-auto"
         />
       </div>
-      <div className="container mx-auto flex flex-col justify-center mt-28 relative z-10">
+      <div className="container mx-auto flex flex-col justify-center mt-28 relative z-10 px-2">
         {seriesData && (
           <div className="flex flex-col items-center md:flex-row gap-x-20 text-white">
             <Image
@@ -47,7 +47,9 @@ const SeriesDetails = () => {
               </span>
               <div className="flex gap-x-2 mt-4">
                 {seriesData.genres.map((genre) => (
-                  <span key={genre.id} className="border rounded-3xl px-4">
+                  <span
+                    key={genre.id}
+                    className="text-xs lg:text-base border rounded-3xl px-4 py-2 bg-white text-black">
                     {genre.name}
                   </span>
                 ))}
@@ -65,9 +67,9 @@ const SeriesDetails = () => {
           </div>
         )}
         {trailer.length > 0 && (
-          <div className="mt-20 flex flex-col lg:gap-y-10 text-white">
+          <div className="mt-20 flex flex-col items-center lg:items-start gap-y-8 lg:gap-y-10 text-white">
             <h2 className="text-3xl">Videos</h2>
-            <div className="flex flex-col lg:flex-row gap-x-4">
+            <div className="flex flex-col lg:flex-row gap-x-4 gap-y-4">
               {trailer.map((item) => item.type === "Trailer" && <VideoPlayer key={item.id} videoKey={item.key} />)}
             </div>
           </div>

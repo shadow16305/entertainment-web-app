@@ -15,7 +15,7 @@ const VideoPlayer: React.FC<player> = (props) => {
       title="YouTube video player"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
       allowFullScreen
-      className="rounded-3xl"></iframe>
+      className="rounded-3xl max-w-[90vw] lg:max-w-[35%]"></iframe>
   );
 };
 
