@@ -13,7 +13,7 @@ const SeriesDetails = () => {
 
   return (
     <>
-      <div className="h-3/4 w-[90vw] lg:w-screen absolute z-0 overflow-x-hidden top-0 blur-2xl opacity-50">
+      <div className="h-3/4 w-screen absolute z-0 overflow-x-hidden top-0 blur-2xl opacity-50">
         <Image
           src={`https://image.tmdb.org/t/p/w500/${seriesData?.backdrop_path}`}
           alt="background"
