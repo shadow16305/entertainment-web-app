@@ -11,7 +11,7 @@ const navLinks = [
   {
     id: "n1",
     iconSrc: "/images/window.svg",
-    path: "/home",
+    path: "/",
     alt: "Home Page",
   },
   {
@@ -39,9 +39,9 @@ const MainNavigation = () => {
 
   return (
     <nav
-      className={`flex justify-between items-center lg:gap-x-20 fixed top-0 lg:top-14 lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 py-9 px-7 lg:py-4 text-white bg-white bg-opacity-5 backdrop-blur-2xl min-w-full lg:min-w-0 lg:rounded-[50px] z-50 ${pathname === "/" && "hidden"}`}>
+      className={`flex justify-between items-center lg:gap-x-20 fixed top-0 lg:top-14 lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 py-9 px-7 lg:py-4 text-white bg-white bg-opacity-5 backdrop-blur-2xl min-w-full lg:min-w-0 lg:rounded-[50px] z-50`}>
       <div className="flex gap-x-6 md:gap-x-8">
-        {navLinks.map(link => (
+        {navLinks.map((link) => (
           <Link
             key={link.id}
             href={link.path}
