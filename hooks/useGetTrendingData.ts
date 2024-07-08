@@ -10,7 +10,7 @@ const useGetTrendingData = () => {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization: `${process.env.NEXT_PUBLIC_API_KEY}`,
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
         },
       };
 

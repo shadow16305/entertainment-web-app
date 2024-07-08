@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { SearchProvider } from "@/store/SearchContext";
-import MainNavigation from "@/components/shared/MainNavigation";
+import MainNavigation from "@/components/main-navigation/MainNavigation";
 
 const outfit = Outfit({ subsets: ["latin"] });
 

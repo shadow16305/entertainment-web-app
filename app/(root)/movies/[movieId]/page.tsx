@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { RxAvatar } from "react-icons/rx";
-import MovieCastSlider from "@/components/shared/MovieCastSlider";
+import MovieCastSlider from "@/app/(root)/movies/[movieId]/_components/MovieCastSlider";
 import useGetMovieDetails from "@/hooks/useGetMovieDetails";
 import VideoPlayer from "@/components/ui/VideoPlayer";
 import useGetMovieTrailerData from "@/hooks/useGetMovieTrailerData";

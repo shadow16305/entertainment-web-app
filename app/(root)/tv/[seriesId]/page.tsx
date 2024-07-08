@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { RxAvatar } from "react-icons/rx";
 import useGetSeriesDetails from "@/hooks/useGetSeriesDetails";
-import SeriesCastSlider from "@/components/shared/SeriesCastSlider";
+import SeriesCastSlider from "@/app/(root)/tv/[seriesId]/_components/SeriesCastSlider";
 import VideoPlayer from "@/components/ui/VideoPlayer";
 import useGetSeriesTrailerData from "@/hooks/useGetSeriesTrailerData";
 

@@ -21,7 +21,7 @@ const useGetMovieDetails = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `${process.env.NEXT_PUBLIC_API_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
       },
     };
 
@@ -38,11 +38,11 @@ const useGetMovieDetails = () => {
     const fetchMovieData = () =>
       fetchData<MovieProps>(`https://api.themoviedb.org/3/movie/${id.movieId}?language=en-US`, setMovieData);
     const fetchMovieReviews = () =>
-      fetchData<ReviewsResponse>(`https://api.themoviedb.org/3/movie/${id.movieId}/reviews`, data =>
+      fetchData<ReviewsResponse>(`https://api.themoviedb.org/3/movie/${id.movieId}/reviews`, (data) =>
         setMovieReviews(data.results)
       );
     const fetchMovieCast = () =>
-      fetchData<CastInfoResponse>(`https://api.themoviedb.org/3/movie/${id.movieId}/credits`, data =>
+      fetchData<CastInfoResponse>(`https://api.themoviedb.org/3/movie/${id.movieId}/credits`, (data) =>
         setMovieCast(data.cast)
       );
 

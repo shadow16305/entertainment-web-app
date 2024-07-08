@@ -1,7 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import TrendingCard from "../ui/TrendingCard";
-import Props from "../../models/props";
+import TrendingCard from "../../../components/ui/TrendingCard";
+import Props from "../../../models/props";
 
 const responsive = {
   superLargeDesktop: {
@@ -33,7 +33,7 @@ interface TrendingCarouselProps {
 const TrendingCarousel: React.FC<TrendingCarouselProps> = ({ data }) => {
   return (
     <Carousel responsive={responsive} centerMode={true} infinite>
-      {data.map(item => (
+      {data.map((item) => (
         <TrendingCard
           key={item.id}
           {...item}

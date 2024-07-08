@@ -10,6 +10,9 @@ interface Props {
     name: string;
     id: string;
   }>;
+  genre_ids: [
+    id: number
+  ]
   language: string;
   release_date: string;
   runtime: string;

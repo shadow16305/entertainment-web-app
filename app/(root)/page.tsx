@@ -1,7 +1,7 @@
 "use client";
 
 import Card from "@/components/ui/Card";
-import TrendingCarousel from "@/components/shared/TrendingCarousel";
+import TrendingCarousel from "./_components/TrendingCarousel";
 import useGetTrendingData from "@/hooks/useGetTrendingData";
 import Link from "next/link";
 import { useContext } from "react";

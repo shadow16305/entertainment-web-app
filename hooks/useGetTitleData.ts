@@ -19,7 +19,7 @@ const useGetData = (endpoint: string): useGetDataProps => {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization: `${process.env.NEXT_PUBLIC_API_KEY}`,
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
         },
       };
 
@@ -36,11 +36,11 @@ const useGetData = (endpoint: string): useGetDataProps => {
   }, [currentPage, endpoint]);
 
   const nextPage = () => {
-    setCurrentPage(prevPage => prevPage + 1);
+    setCurrentPage((prevPage) => prevPage + 1);
   };
 
   const prevPage = () => {
-    setCurrentPage(prevPage => Math.max(prevPage - 1, minPage));
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, minPage));
   };
 
   return { data, nextPage, prevPage, currentPage };

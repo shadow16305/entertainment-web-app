@@ -1,11 +1,10 @@
-import Props from "@/models/props";
 import { useState, useEffect } from "react";
 
-const useGetPopularData = (endpoint: string): Props[] => {
-  const [popularData, setPopularData] = useState<Props[]>([]);
+export const useGetMovieGenres = (endpoint: string) => {
+  const [genreData, setGenreData] = useState<GenreProps[]>([]);
 
   useEffect(() => {
-    const fetchPopularData = async () => {
+    const fetchGenreData = async () => {
       const options = {
         method: "GET",
         headers: {
@@ -17,17 +16,19 @@ const useGetPopularData = (endpoint: string): Props[] => {
       try {
         const response = await fetch(`https://api.themoviedb.org/3/${endpoint}`, options);
         const data = await response.json();
-        setPopularData(data.results);
+
+        if (data.genres) {
+          setGenreData(data.genres);
+        } else {
+          console.error("Invalid data structure:", data);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    fetchPopularData();
+    fetchGenreData();
   }, [endpoint]);
 
-  return popularData;
+  return genreData;
 };
-
-export const useGetPopularMovieData = () => useGetPopularData("movie/popular");
-export const useGetPopularSeriesData = () => useGetPopularData("tv/popular");

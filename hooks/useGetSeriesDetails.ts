@@ -22,7 +22,7 @@ const useGetSeriesDetails = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `${process.env.NEXT_PUBLIC_API_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
       },
     };
 
@@ -39,11 +39,11 @@ const useGetSeriesDetails = () => {
     const fetchMovieData = () =>
       fetchData<SeriesProps>(`https://api.themoviedb.org/3/tv/${id.seriesId}?language=en-US`, setSeriesData);
     const fetchMovieReviews = () =>
-      fetchData<ReviewsResponse>(`https://api.themoviedb.org/3/tv/${id.seriesId}/reviews`, data =>
+      fetchData<ReviewsResponse>(`https://api.themoviedb.org/3/tv/${id.seriesId}/reviews`, (data) =>
         setSeriesReviews(data.results)
       );
     const fetchMovieCast = () =>
-      fetchData<CastInfoResponse>(`https://api.themoviedb.org/3/tv/${id.seriesId}/credits`, data =>
+      fetchData<CastInfoResponse>(`https://api.themoviedb.org/3/tv/${id.seriesId}/credits`, (data) =>
         setSeriesCast(data.cast)
       );
 
